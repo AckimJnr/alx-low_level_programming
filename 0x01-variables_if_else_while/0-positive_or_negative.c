@@ -6,7 +6,7 @@
  * @n - store random variable
  *
  * Description: This program generates a random number
- * Return - Return 0 after successful execution or else return 1
+ * Return: 0 after successful execution or else return 1
  */
 int main(void)
 {

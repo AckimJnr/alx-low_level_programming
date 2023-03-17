@@ -1,14 +1,12 @@
 #include <stdio.h>
-
 /**
- * main function 
- * prints message to console using puts function
+ * main - entry point of our application
  *
+ * Description: Function to print text using puts
+ * Return: Return 0 if successful else return error
  */
 int main(void)
 {
-	puts ("\"Programming is like building a multilingual puzzle\n");
-	return 0;
+	puts("\"Programming is like building a multilingual puzzle\n");
+	return (0);
 }
- 
-

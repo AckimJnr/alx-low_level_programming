@@ -1,9 +1,9 @@
 #include <stdio.h>
 /**
  * main - entry point
- * @letter - stores all alphabet chars 1 at a time
+ * @num - loop counter
  *
- * Description: This program prints the alphabet in lowercase
+ * Description: This program prints chars 0 - 9, using ascii code
  * Return: 0 after successful execution or else return 1
  */
 int main(void)

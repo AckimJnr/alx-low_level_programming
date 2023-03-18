@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - entry point
- * @letter - stores all alphabet chars 1 at a time
+ * @hex - stores all the hexadecimals: 1 at a time
  *
  * Description: This program prints all the numbers of base 16
  * Return: 0 after successful execution or else return 1

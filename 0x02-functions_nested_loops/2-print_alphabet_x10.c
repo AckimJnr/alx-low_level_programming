@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_alphabet - entry point function to the program
+ * print_alphabet_x10 - entry point function to the program
  *
  * Description: Prints lowercase alphabet on 10 lines
  * Return: Return 0 on successful exe or else !0

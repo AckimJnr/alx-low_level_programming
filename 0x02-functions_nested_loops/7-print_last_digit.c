@@ -15,8 +15,10 @@ int print_last_digit(int num)
 
 	if (num > 0 || num == 0)
 		dgt = num % 10;
-	else
+	else if (num < 0)
 		dgt = (num * -1) % 10;
+	else
+		dgt = (-1 * num) % 10;
 
 	str[0] = dgt + '0';
 	str[1] = '\0';

@@ -9,16 +9,18 @@
 int print_last_digit(int num)
 {
 	int dgt;
+	int ngNumber;
 	char str[2];
 	int i;
 	int len;
 
 	if (num > 0 || num == 0)
 		dgt = num % 10;
-	else if (num < 0)
-		dgt = (num * -1) % 10;
 	else
-		dgt = (-1 * num) % 10;
+	{
+		ngNumber = num % 10;
+		dgt = ngNumber * -1;
+	}
 
 	str[0] = dgt + '0';
 	str[1] = '\0';

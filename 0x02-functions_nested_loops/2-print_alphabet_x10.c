@@ -5,7 +5,7 @@
  * Description: Prints lowercase alphabet on 10 lines
  * Return: Return 0 on successful exe or else !0
  */
-void print_alphabet_x10(void);
+void print_alphabet_x10(void)
 {
 	char c;
 	int i;
@@ -18,6 +18,6 @@ void print_alphabet_x10(void);
 			_putchar(c);
 		}
 		i++;
+		_putchar('\n');
 	}
-	_putchar('\n');
 }

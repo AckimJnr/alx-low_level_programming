@@ -2,33 +2,23 @@
 #include "main.h"
 /**
  * print_to_98 - prints numbers from 98 to or fro
- * @num: number to be printed
+ * @j: number to be printed
  *
  * Decription: Fuction to print numbers from or to 98
  * Return: Return Void
  */
-void print_to_98(int num)
+void print_to_98(int j)
 {
-	int i;
-
-	if (num < 98)
+	if (j >= 98)
 	{
-		for (i = num; i <= 98; i++)
-		{
-			printf("%d, ", i);
-		}
-		putchar('\n');
+		while (j > 98)
+			printf("%d, ", j--);
+		printf("%d\n", j);
 	}
-	else if (num > 98)
+	else
 	{
-		for (i = num; i >= 98; i--)
-		{
-			printf("%d, ", i);
-		}
-		putchar('\n');
-	}
-	else if( num == 98)
-	{
-		printf("%d \n", num);
+		while (j < 98)
+			printf("%d, ", j++);
+		printf("%d\n", j);
 	}
 }

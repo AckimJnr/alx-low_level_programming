@@ -14,9 +14,9 @@ void print_times_table(int n)
 
 	if (n > 15 || n < 0)
 		return;
-	for (firstnum = 0; firstnum < n; firstnum++)
+	for (firstnum = 0; firstnum < n + 1; firstnum++)
 	{
-		for (secondnum = 0; secondnum < n; secondnum++)
+		for (secondnum = 0; secondnum < n + 1; secondnum++)
 		{
 			product = firstnum * secondnum;
 			if (secondnum == 0)

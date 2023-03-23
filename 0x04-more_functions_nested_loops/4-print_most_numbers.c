@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * print_numbers - prints numbers from 0 - 9
+ * print_most_numbers - prints numbers from 0 - 9
  *
  * Return: Returns void
  */
-void print_numbers(void)
+void print_most_numbers(void)
 {
 	int n;
 

@@ -4,7 +4,7 @@
  *
  * Return: Returns void
  */
-void print_numbers(void);
+void print_numbers(void)
 {
 	int n;
 
@@ -13,4 +13,5 @@ void print_numbers(void);
 		_putchar(n);
 	}
 	_putchar('\n');
+	return;
 }

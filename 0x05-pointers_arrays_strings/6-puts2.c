@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 /**
  * puts2 - Prints every other character of a string
  * @str: string to be sampled
@@ -7,12 +8,12 @@
  */
 void puts2(char *str)
 {
-	int i = 0;
-
-	while (str[i] != '\0')
+	unsigned len = strlen(str);
+	unsigned i;
+	
+	for (i = 0; i < len; i += 2)
 	{
 		_putchar(*(str + i));
-		i += 2;
 	}
 	_putchar('\n');
 }

@@ -8,9 +8,9 @@
  */
 void puts2(char *str)
 {
-	unsigned len = strlen(str);
-	unsigned i;
-	
+	size_t len = strlen(str);
+	size_t i;
+
 	for (i = 0; i < len; i += 2)
 	{
 		_putchar(*(str + i));

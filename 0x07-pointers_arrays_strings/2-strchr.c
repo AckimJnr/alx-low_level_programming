@@ -17,6 +17,12 @@ char *_strchr(char *s, char c)
 	}
 	if (c == '\0')
 		return (char*) s;
+	else if (c == '\n')
+		return (char*) s;
+	else if (c == ' ')
+		return (char*) s;
+	else if	(c == '\t')
+		return (char*) s;
 	
 	return NULL;
 }

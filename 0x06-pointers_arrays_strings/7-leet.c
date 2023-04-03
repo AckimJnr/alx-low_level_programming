@@ -8,21 +8,24 @@
 
 char *leet(char *str)
 {
-	int i = 0;
+	char *lowerCase = "aeotl";
+	char *upperCase = "AEOTL";
+	char *Replacement = "43071";
+	int len = strlen(str);
+	int i;
+	int j;
 
-	while (str[i] != '\0')
+	for (i = 0; i < len; i++)
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		else if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		else if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		else if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		else if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
-		i++;
+		for (j = 0; j < 5; j++)
+		{
+			if (str[i] == lowerCase[j] || str[i] == upperCase[j])
+			{
+				str[i] = Replacement[j];
+			}
+		}
 	}
+
+
 	return (str);
 }

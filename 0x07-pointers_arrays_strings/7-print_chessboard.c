@@ -1,4 +1,3 @@
-#include "main.h"
 /**
  * print_chessboard - print a checkboard
  * @a: rows of the chess board

@@ -15,15 +15,17 @@ char *rot13(char *str)
 	/** int len = strlen(str);*/
 	int alphlen = strlen(output);
 
-	while ( *(str + i) != '\0')
+	while (*(str + i) != '\0')
 	{
 		for (j = 0; j < alphlen; j++)
 		{
 			if (*(str + i) == *(input + j))
+			{
 				*(str + i) = *(output + j);
+				break;
+			}
 		}
 		i++;
 	}
 	return (str);
 }
-

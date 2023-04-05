@@ -27,10 +27,9 @@ int refine_sqrt(int n, int res)
 
 	if (res < 1)
 		return (-1);
-
-	if (dif < 0)
-		dif -= dif;
 	if (dif == 0)
 		return (res);
+	if (dif < 0)
+		dif = -dif;
 	return (refine_sqrt(n, (res + n / res) / 2));
 }

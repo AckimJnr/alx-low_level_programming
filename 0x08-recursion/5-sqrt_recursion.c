@@ -25,8 +25,6 @@ int refine_sqrt(int n, int res)
 {
 	long int dif = (res * res - n) / (2 * res);
 
-	if (res < 1)
-		return (-1);
 	if (dif == 0)
 		return (res);
 	if (dif < 0)

@@ -23,7 +23,7 @@ int _sqrt_recursion(int n)
 
 int refine_sqrt(int n, int res)
 {
-	int dif = (res * res - n) / (2 * res);
+	long int dif = (res * res - n) / (2 * res);
 
 	if (res < 1)
 		return (-1);

@@ -6,10 +6,8 @@
  *
  * Return: Return 0 on successful execution others !0
  */
-int main(__attribute__((unused))int argc, char **argv)
+int main(__attribute__((unused))int argc, __attribute__((unused))char **argv)
 {
-	(void) argv;
-
-	printf("%d\n", argc);
+	printf("%d\n", --argc);
 	return (0);
 }

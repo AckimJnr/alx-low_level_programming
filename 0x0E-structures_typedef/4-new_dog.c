@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "dog.h"
 /**
@@ -20,19 +20,45 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 	if (name != NULL)
-		pitbull->name = name;
+	{
+		pitbull->name = strdup(name);
+		if (pitbull->name == NULL)
+		{
+			free(pitbull);
+			return (NULL);
+		}
+	}
 	else
+	{
+		free(pitbull);
 		return (NULL);
+	}
 
 	if (age > 0)
 		pitbull->age = age;
 	else
+	{
+		free(pitbull->name);
+		free(pitbull);
 		return (NULL);
+	}
 
 	if (owner != NULL)
-		pitbull->owner = owner;
+	{
+		pitbull->owner = strdup(owner);
+		if (pitbull->owner == NULL)
+		{
+			free(pitbull->name);
+			free(pitbull);
+			return (NULL);
+		}
+	}
 	else
+	{
+		free(pitbull->name);
+		free(pitbull);
 		return (NULL);
+	}
 
 	return (pitbull);
 }

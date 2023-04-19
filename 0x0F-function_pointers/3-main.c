@@ -18,6 +18,14 @@ int main(int argc, char *argv[])
 	int result;
 	int (*func)(int, int);
 
+
+	if (*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*'
+			&& *argv[2] != '/' && *argv[2] != '%')
+	{
+		printf("Error\n");
+		exit(98);
+	}
+
 	if (argc == 4)
 	{
 		a = atoi(argv[1]);

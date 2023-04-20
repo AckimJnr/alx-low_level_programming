@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <limits.h>
 /**
  * print_numbers - prints numbers followed by a new line
  * @separator: char to seperate the printed numbers if seperator == NULL dont
@@ -17,7 +18,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		printf("%ld", va_arg(list, long int));
+		int num = va_arg(list, int);
+		printf("%d", num);
 
 		if (separator != NULL && i != n - 1)
 			printf("%s ", separator);

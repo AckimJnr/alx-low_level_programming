@@ -1,6 +1,5 @@
 #include "lists.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
  * list_len - Prints elements of a list
  * @h: list struct to be printed

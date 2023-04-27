@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 #include <stdlib.h>
 /**
  * free_list - free the located list

@@ -2,16 +2,17 @@
 section .text
 	global _start
 
+	extern printf
+	extern exit
+
 _start:
-	mov edx, len
-	mov ecx, greetings
-	mov ebx, 1
-	mov eax, 4
-	int 0x80
+	push greetings
+	push fmt
+	call printf
+	add esp, 8
 
-	mov eax, 1
-	int 0x080
-
+	xor eax, eax
+	call exit
 section .data
 	greetings db "Hello, Holberton",0xa
-	len equ $ -greetings
+	fmt db "%s", 0

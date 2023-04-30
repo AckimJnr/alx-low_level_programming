@@ -1,7 +1,7 @@
 ; my first assembly line code :)
 section .data
-    greetings db "Hello, Holberton",0xa
-    fmt db "%s", 0
+    ;greetings db "Hello, Holberton",0xa
+    fmt db "Hello, Holberton",0xa
 
 section .text
     global main
@@ -13,7 +13,7 @@ main:
     mov rbp, rsp
 
     mov rdi, fmt
-    mov rsi, greetings
+    ;mov rsi, greetings
     xor eax, eax
     call printf
 

@@ -15,6 +15,9 @@ size_t print_listint_safe(const listint_t *head)
 
 	visited_node = malloc(sizeof(listint_t *) * 200);
 
+	if (head == NULL)
+		return (0);
+
 	if (visited_node == NULL)
 		exit(98);
 

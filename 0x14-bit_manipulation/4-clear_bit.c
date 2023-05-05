@@ -6,7 +6,7 @@
  * Return: Returns 1 if it worked and -1 if an error occurred
  */
 
-int set_bit(unsigned long int *n, unsigned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int mask = 0;
 

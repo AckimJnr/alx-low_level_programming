@@ -5,10 +5,9 @@
  *
  * Return: void
  */
-
 void print_binary(unsigned long int n)
 {
-	int bits = 16;
+	int bits = sizeof(n) * 8;
 	unsigned long int mask = 1UL << (bits - 1);
 	int isprinted = 0;
 

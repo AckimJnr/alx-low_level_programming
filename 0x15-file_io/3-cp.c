@@ -31,8 +31,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	replica_fd = open(argv[2], O_WRONLY | O_CREAT
-			| O_TRUNC, fileMode);
+	replica_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, fileMode);
 	umask(oldMask);
 	if (replica_fd == -1)
 	{
@@ -47,6 +46,11 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
+	}
+	if (nbytes == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
 	}
 	source_file_fd = close(source_file_fd);
 	replica_fd = close(replica_fd);

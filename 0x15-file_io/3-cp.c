@@ -22,13 +22,13 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	source_file_fd = open(argv[1], O_RDONLY, 0);
 	if (source_file_fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	replica_fd = open(argv[2], O_WRONLY | O_CREAT
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	umask(oldMask);
 	if (replica_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	{
 		if (write(replica_fd, buffer, nbytes) != nbytes)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
@@ -53,12 +53,12 @@ int main(int argc, char *argv[])
 
 	if (source_file_fd == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", source_file_fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source_file_fd);
 		exit(100);
 	}
 	if (replica_fd == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", replica_fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", replica_fd);
 		exit(100);
 	}
 	return (0);

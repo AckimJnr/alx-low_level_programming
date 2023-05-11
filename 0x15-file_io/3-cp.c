@@ -15,7 +15,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int source_file_fd, replica_fd, nbytes;
+	int source_file_fd, replica_fd, nbytes, write_fd;
 	char buffer[BUFFER_SIZE];
 	mode_t fileMode = 0664;
 	mode_t oldMask = umask(0000);
@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
 
 	while ((nbytes = read(source_file_fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		if (write(replica_fd, buffer, nbytes) == -1)
+		write_fd = write(replica_fd, buffer, nbytes);
+		if (write_fd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
@@ -52,15 +53,13 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	source_file_fd = close(source_file_fd);
-	replica_fd = close(replica_fd);
 
-	if (source_file_fd == -1)
+	if (close(source_file_fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", source_file_fd);
 		exit(100);
 	}
-	if (replica_fd == -1)
+	if (close(replica_fd) == 1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", replica_fd);
 		exit(100);

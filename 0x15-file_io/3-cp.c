@@ -22,13 +22,14 @@ int main(int argc, char *argv[])
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
-	if ((source_file_fd = open(argv[1], O_RDONLY, 0644)) == -1)
+	source_file_fd = open(argv[1], O_RDONLY, 0644);
+	if (source_file_fd == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 
 	}
-	if ((replica_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0)) == -1)
+	replica_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0);
+	if (replica_fd == -1)
 	{
 		dprintf(2, "Error: Can't write to %s", argv[2]);
 		exit(99);
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
 
 	while ((nbytes = read(source_file_fd, buffer, BUFFER_SIZE)) > 0)
 	{
-		if (write (replica_fd, buffer, nbytes) != nbytes)
+		if (write(replica_fd, buffer, nbytes) != nbytes)
 		{
 			dprintf(2, "Error: Can't write to %s", argv[2]);
 			exit(99);

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/stat.h>
 #define BUFFER_SIZE 1024
 
 /**
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
 {
 	int source_file_fd, replica_fd, nbytes;
 	char buffer[BUFFER_SIZE];
+	mode_t fileMode = 0664;
+	mode_t oldMask = umask(0000);
 
 	if (argc != 3)
 	{
@@ -29,7 +32,8 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	replica_fd = open(argv[2], O_WRONLY | O_CREAT
-			| O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+			| O_TRUNC, fileMode);
+	umask(oldMask);
 	if (replica_fd == -1)
 	{
 		dprintf(2, "Error: Can't write to %s", argv[2]);

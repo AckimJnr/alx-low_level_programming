@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	umask(oldMask);
 	if (replica_fd == -1)
 	{
-		dprintf(2, "Error: Can't write to %s", argv[2]);
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 
@@ -44,12 +44,23 @@ int main(int argc, char *argv[])
 	{
 		if (write(replica_fd, buffer, nbytes) != nbytes)
 		{
-			dprintf(2, "Error: Can't write to %s", argv[2]);
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
-	close(source_file_fd);
-	close(replica_fd);
+	source_file_fd = close(source_file_fd);
+	replica_fd = close(replica_fd);
+
+	if (source_file_fd == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", source_file_fd);
+		exit(100);
+	}
+	if (replica_fd == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", replica_fd);
+		exit(100);
+	}
 	return (0);
 
 }

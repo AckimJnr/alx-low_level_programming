@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	umask(oldMask);
 	if (replica_fd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
 		exit(99);
 	}
 	copy_file(source_file_fd, replica_fd, buffer, argv);
@@ -67,7 +67,7 @@ void copy_file(int source_file_fd, int replica_fd, char buffer[], char *argv[])
 	}
 	if (nbytes == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
 		exit(99);
 	}
 

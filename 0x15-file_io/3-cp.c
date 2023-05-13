@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
  */
 void copy_file(int source_file_fd, int replica_fd, char buffer[], char *argv[])
 {
-	int nbytes, write_fd;
+	ssize_t nbytes, write_fd;
 
 	while ((nbytes = read(source_file_fd, buffer, BUFFER_SIZE)) > 0)
 	{

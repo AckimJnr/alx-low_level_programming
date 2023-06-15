@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "lists.h"
 /**
  * dlistint_len - prints the number of elements in a list

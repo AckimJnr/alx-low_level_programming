@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 /**
  * print_dlistint - prints all the elements of a linked list

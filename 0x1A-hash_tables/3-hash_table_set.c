@@ -11,17 +11,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int table_size = ht->size;
 	unsigned long int hash_index = hash_djb2((unsigned char *)key);
-	unsigned long int item_position = 0;
+	unsigned long int item_position = hash_index % table_size;
 	hash_node_t *hash_data = malloc(sizeof(hash_node_t));
 
-	ht = hash_table_create(ht->size);
 	if (hash_data == NULL)
 		return (0);
 
 	hash_data->key = strdup(key);
 	hash_data->value = strdup(value);
 	hash_data->next = NULL;
-	item_position = hash_index / table_size;
+
 	if (item_position > ht->size)
 		return (0);
 
@@ -36,6 +35,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				free(hash_data->key);
 				free(hash_data->value);
 				free(hash_data);
+				free(current->value);
 				current->value = strdup(value);
 				return (1);
 			}

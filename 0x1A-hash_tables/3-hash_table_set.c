@@ -19,11 +19,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	hash_data->key = strdup(key);
 	hash_data->value = strdup(value);
+	if (hash_data->key == NULL || hash_data->value == NULL)
+	{
+		free(hash_data->key);
+		free(hash_data);
+		return (0);
+	}
 	hash_data->next = NULL;
-
 	if (item_position > ht->size)
 		return (0);
-
 	if (ht->array[item_position] != NULL)
 	{
 		hash_node_t *current = ht->array[item_position];

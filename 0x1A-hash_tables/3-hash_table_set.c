@@ -9,14 +9,14 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int table_size = ht->size;
+	unsigned long int table_size = 0, item_position = 0;
 	unsigned long int hash_index = hash_djb2((unsigned char *)key);
-	unsigned long int item_position = hash_index % table_size;
 	hash_node_t *hash_data = malloc(sizeof(hash_node_t));
 
 	if (hash_data == NULL || ht == NULL || key == NULL || *key == '\0')
 		return (0);
-
+	table_size = ht->size;
+	item_position = hash_index % table_size;
 	hash_data->key = strdup(key);
 	hash_data->value = strdup(value);
 	if (hash_data->key == NULL || hash_data->value == NULL)

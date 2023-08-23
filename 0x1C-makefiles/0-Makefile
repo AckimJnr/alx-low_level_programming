@@ -1,0 +1,10 @@
+# builds school executable from c source files
+
+
+all: school
+
+school: main.c school.c
+	gcc main.c school.c -o school
+
+clean:
+	rm -f school

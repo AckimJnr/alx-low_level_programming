@@ -31,11 +31,7 @@ int binary_search(int *array, size_t size, int value)
 		else if (array[m] > value)
 			R = m - 1;
 		else
-		{
-			printf("Element found at index %ld.\n", m);
 			return (m);
-		}
 	}
-	printf("Element not found.\n");
 	return (-1);
 }
